@@ -3,49 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import Timeline from "../components/Timeline.astro";
-
-const timelineItems = [
-  {
-    date: "January 2025",
-    title: "Joined AI Research Lab",
-    description:
-      "Started as a Research Scientist at the Advanced AI Research Laboratory, focusing on explainable artificial intelligence and social network analysis.",
-    type: "work",
-    image: "/images/ai-lab.jpg",
-  },
-  {
-    date: "July 2025",
-    title: "ASONAM 2025 Conference",
-    description:
-      'Presented "CityHood: An Explainable Travel Recommender System" at the International Conference on Advances in Social Networks Analysis and Mining in Barcelona.',
-    type: "achievement",
-    image: "/images/asonam2025-presentation.jpg",
-  },
-  {
-    date: "December 2024",
-    title: "PhD in Computer Science",
-    description:
-      'Completed doctoral studies with focus on machine learning and social network analysis. Dissertation: "Explainable AI for Social Recommendation Systems".',
-    type: "education",
-    image: "/images/graduation.jpg",
-  },
-  {
-    date: "March 2024",
-    title: "Research Publication",
-    description:
-      'Published "Machine Learning Approaches for Social Network Analysis" in the Journal of Information Systems and Analytics.',
-    type: "achievement",
-    image: "/images/publication.jpg",
-  },
-  {
-    date: "September 2021",
-    title: "Started PhD Journey",
-    description:
-      "Began doctoral studies in Computer Science, focusing on the intersection of artificial intelligence and social networks.",
-    type: "education",
-    image: "/images/phd-start.jpg",
-  },
-];
+import timelineItems from "../data/timelineItems.ts";
+import HeroSection from "../components/HeroSection.astro";
 ---
 
 <BaseLayout title="Gustavo H. Santos - Research Scientist & AI Engineer">
@@ -53,81 +12,7 @@ const timelineItems = [
 
   <main class="min-h-screen">
     <!-- Hero Section -->
-    <section
-      class="hero min-h-screen bg-gradient-to-br from-base-200 to-base-100"
-    >
-      <div
-        class="hero-content max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-2 gap-12 items-center"
-      >
-        <div class="text-center lg:text-left">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            Hi, I'm <span
-              class="text-primary bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-              >Gustavo H. Santos</span
-            >
-          </h1>
-          <p class="text-xl md:text-2xl text-base-content/70 mt-4 font-medium">
-            Research Scientist & AI Engineer
-          </p>
-          <p
-            class="text-lg text-base-content/80 mt-6 leading-relaxed max-w-2xl"
-          >
-            I'm passionate about building explainable AI systems that make
-            complex technology accessible and trustworthy. My work focuses on
-            social network analysis, recommendation systems, and creating AI
-            that people can understand and trust.
-          </p>
-          <div
-            class="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start"
-          >
-            <a href="#timeline" class="btn btn-primary btn-lg">
-              <svg
-                class="w-5 h-5 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
-              Explore My Journey
-            </a>
-            <a href="/projects" class="btn btn-outline btn-lg">
-              <svg
-                class="w-5 h-5 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                ></path>
-              </svg>
-              View Projects
-            </a>
-          </div>
-        </div>
-        <div class="flex justify-center lg:justify-end">
-          <div class="avatar">
-            <div
-              class="w-72 md:w-80 lg:w-96 mask mask-circle ring ring-primary ring-offset-base-100 ring-offset-8 hover:ring-secondary transition-all duration-500"
-            >
-              <img
-                src="/images/profile.jpg"
-                alt="Gustavo H. Santos"
-                class="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <HeroSection />
 
     <!-- About Section -->
     <section class="py-20 px-6 bg-base-100">
