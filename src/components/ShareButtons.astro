@@ -10,7 +10,7 @@ const { title, url } = Astro.props;
 <section class="max-w-4xl mx-auto px-6 py-8 border-t border-base-300">
   <h3 class="text-lg font-semibold mb-4">Share this {title.toLowerCase()}</h3>
   <div class="flex flex-wrap gap-3">
-    <a
+    <!-- <a
       href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`}
       target="_blank"
       rel="noopener noreferrer"
@@ -22,7 +22,7 @@ const { title, url } = Astro.props;
         ></path>
       </svg>
       Twitter
-    </a>
+    </a> -->
     <a
       href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`}
       target="_blank"
