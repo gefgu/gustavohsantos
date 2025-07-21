@@ -1,0 +1,253 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer footer-center bg-base-200 text-base-content p-10 border-t border-base-300">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <!-- About Section -->
+      <div class="text-center md:text-left">
+        <h3 class="text-lg font-bold text-primary mb-3">Gustavo H. Santos</h3>
+        <p class="text-sm text-base-content/70 leading-relaxed">
+          Research Scientist and AI Engineer passionate about explainable AI,
+          social network analysis, and building technology that makes a positive
+          impact.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="text-center">
+        <h4 class="text-base font-semibold mb-3">Quick Links</h4>
+        <div class="flex flex-col gap-2">
+          <a href="/" class="link link-hover text-sm">Home</a>
+          <a href="/projects" class="link link-hover text-sm">Projects</a>
+          <a href="/publications" class="link link-hover text-sm">Publications</a>
+          <a href="/blog" class="link link-hover text-sm">Blog & Adventures</a>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="text-center md:text-right">
+        <h4 class="text-base font-semibold mb-3">Connect</h4>
+        <div class="flex justify-center md:justify-end gap-3">
+          <a
+            href="https://github.com/gefgu"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost btn-circle btn-sm"
+            aria-label="GitHub"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          
+          <a
+            href="https://linkedin.com/in/gustavo-santos"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost btn-circle btn-sm"
+            aria-label="LinkedIn"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          
+          <a
+            href="https://twitter.com/gustavo_santos"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost btn-circle btn-sm"
+            aria-label="Twitter"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+          
+          <a
+            href="mailto:gustavo@example.com"
+            class="btn btn-ghost btn-circle btn-sm"
+            aria-label="Email"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.749L12 10.074l9.615-6.253h.749c.904 0 1.636.732 1.636 1.636z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom Section -->
+    <div class="divider"></div>
+    <div class="text-center">
+      <p class="text-sm text-base-content/60">
+        © {currentYear} Gustavo H. Santos. Built with 
+        <a href="https://astro.build" target="_blank" rel="noopener" class="link link-primary">Astro</a> 
+        and <a href="https://daisyui.com" target="_blank" rel="noopener" class="link link-primary">DaisyUI</a>.
+      </p>
+    </div>
+  </div>
+</footer>a
+            href="mailto:gustavo@example.com"
+            class="social-link"
+            aria-label="Email"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/gustavo-santos"
+            class="social-link"
+            aria-label="LinkedIn"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="https://github.com/gefgu"
+            class="social-link"
+            aria-label="GitHub"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © {currentYear} Gustavo H. Santos. All rights reserved.
+      </p>
+      <p class="footer-tech">
+        Built with <a href="https://astro.build" class="footer-link">Astro</a> and
+        deployed on
+        <a href="https://pages.github.com" class="footer-link">GitHub Pages</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    margin-top: 4rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    padding: 3rem 0;
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-description {
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-link {
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-link:hover {
+    color: var(--color-primary);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-link {
+    color: var(--color-text-light);
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+  }
+
+  .social-link:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--color-border);
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copyright,
+  .footer-tech {
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+  }
+</style>

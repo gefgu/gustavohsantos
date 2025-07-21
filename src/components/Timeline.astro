@@ -1,0 +1,104 @@
+---
+export interface TimelineItem {
+  date: string;
+  title: string;
+  description: string;
+  image?: string;
+  type?: string;
+}
+
+interface Props {
+  items: TimelineItem[];
+}
+
+const { items } = Astro.props;
+
+function getTypeIcon(type?: string) {
+  switch (type) {
+    case "education":
+      return "🎓";
+    case "work":
+      return "💼";
+    case "achievement":
+      return "🏆";
+    case "project":
+      return "🚀";
+    default:
+      return "📍";
+  }
+}
+
+function getTypeColor(type?: string) {
+  switch (type) {
+    case "education":
+      return "text-secondary";
+    case "work":
+      return "text-primary";
+    case "achievement":
+      return "text-accent";
+    case "project":
+      return "text-info";
+    default:
+      return "text-neutral";
+  }
+}
+---
+
+<div class="max-w-4xl mx-auto py-8">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+      My Journey
+    </h2>
+    <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4"></div>
+    <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+      Key milestones in my academic and professional career
+    </p>
+  </div>
+
+  <div class="relative">
+    <!-- Timeline line -->
+    <div class="absolute left-8 md:left-1/2 md:-ml-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent"></div>
+    
+    <div class="space-y-12">
+      {
+        items.map((item, index) => (
+          <div class={`relative flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+            <!-- Timeline marker -->
+            <div class="absolute left-8 md:left-1/2 md:-ml-6 w-12 h-12 bg-base-100 border-4 border-primary rounded-full flex items-center justify-center text-xl shadow-lg z-10">
+              <span class={getTypeColor(item.type)}>{getTypeIcon(item.type)}</span>
+            </div>
+            
+            <!-- Content -->
+            <div class={`ml-20 md:ml-0 ${index % 2 === 0 ? 'md:mr-8 md:text-right' : 'md:ml-8'} md:w-5/12`}>
+              <div class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border border-base-300 group hover:-translate-y-1">
+                <div class="card-body p-6">
+                  <div class="flex flex-col gap-3">
+                    <div class={`badge badge-primary ${index % 2 === 0 ? 'md:self-end' : 'md:self-start'}`}>
+                      {item.date}
+                    </div>
+                    <h3 class="card-title text-xl font-bold">
+                      {item.title}
+                    </h3>
+                    <p class="text-base-content/70 leading-relaxed">
+                      {item.description}
+                    </p>
+                    {item.image && (
+                      <figure class="mt-4 rounded-lg overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          class="w-full h-48 object-cover"
+                          loading="lazy"
+                        />
+                      </figure>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

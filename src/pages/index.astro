@@ -1,16 +1,293 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import Timeline from "../components/Timeline.astro";
 
+const timelineItems = [
+  {
+    date: "January 2025",
+    title: "Joined AI Research Lab",
+    description:
+      "Started as a Research Scientist at the Advanced AI Research Laboratory, focusing on explainable artificial intelligence and social network analysis.",
+    type: "work",
+    image: "/images/ai-lab.jpg",
+  },
+  {
+    date: "July 2025",
+    title: "ASONAM 2025 Conference",
+    description:
+      'Presented "CityHood: An Explainable Travel Recommender System" at the International Conference on Advances in Social Networks Analysis and Mining in Barcelona.',
+    type: "achievement",
+    image: "/images/asonam2025-presentation.jpg",
+  },
+  {
+    date: "December 2024",
+    title: "PhD in Computer Science",
+    description:
+      'Completed doctoral studies with focus on machine learning and social network analysis. Dissertation: "Explainable AI for Social Recommendation Systems".',
+    type: "education",
+    image: "/images/graduation.jpg",
+  },
+  {
+    date: "March 2024",
+    title: "Research Publication",
+    description:
+      'Published "Machine Learning Approaches for Social Network Analysis" in the Journal of Information Systems and Analytics.',
+    type: "achievement",
+    image: "/images/publication.jpg",
+  },
+  {
+    date: "September 2021",
+    title: "Started PhD Journey",
+    description:
+      "Began doctoral studies in Computer Science, focusing on the intersection of artificial intelligence and social networks.",
+    type: "education",
+    image: "/images/phd-start.jpg",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Gustavo H. Santos - Research Scientist & AI Engineer">
+  <Navigation />
+
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section
+      class="hero min-h-screen bg-gradient-to-br from-base-200 to-base-100"
+    >
+      <div
+        class="hero-content max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-2 gap-12 items-center"
+      >
+        <div class="text-center lg:text-left">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            Hi, I'm <span
+              class="text-primary bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              >Gustavo H. Santos</span
+            >
+          </h1>
+          <p class="text-xl md:text-2xl text-base-content/70 mt-4 font-medium">
+            Research Scientist & AI Engineer
+          </p>
+          <p
+            class="text-lg text-base-content/80 mt-6 leading-relaxed max-w-2xl"
+          >
+            I'm passionate about building explainable AI systems that make
+            complex technology accessible and trustworthy. My work focuses on
+            social network analysis, recommendation systems, and creating AI
+            that people can understand and trust.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start"
+          >
+            <a href="#timeline" class="btn btn-primary btn-lg">
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+              </svg>
+              Explore My Journey
+            </a>
+            <a href="/projects" class="btn btn-outline btn-lg">
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                ></path>
+              </svg>
+              View Projects
+            </a>
+          </div>
+        </div>
+        <div class="flex justify-center lg:justify-end">
+          <div class="avatar">
+            <div
+              class="w-72 md:w-80 lg:w-96 mask mask-circle ring ring-primary ring-offset-base-100 ring-offset-8 hover:ring-secondary transition-all duration-500"
+            >
+              <img
+                src="/images/profile.jpg"
+                alt="Gustavo H. Santos"
+                class="object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 px-6 bg-base-100">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            About Me
+          </h2>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"
+          >
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-12 items-start">
+          <div class="lg:col-span-2 space-y-6">
+            <div class="prose prose-lg max-w-none text-base-content/80">
+              <p class="text-lg leading-relaxed">
+                As a Research Scientist and AI Engineer, I specialize in
+                developing explainable artificial intelligence systems that
+                bridge the gap between complex algorithms and human
+                understanding. My work primarily focuses on social network
+                analysis, recommendation systems, and machine learning
+                applications in urban planning.
+              </p>
+              <p class="text-lg leading-relaxed">
+                I believe that AI should not be a black box. Through my research
+                and projects, I strive to create systems that not only perform
+                well but can also explain their reasoning in ways that users can
+                understand and trust.
+              </p>
+              <p class="text-lg leading-relaxed">
+                When I'm not diving deep into research papers or coding, you'll
+                find me exploring new cities (often testing my own travel
+                recommendation algorithms!), attending academic conferences, or
+                sharing insights about AI and technology.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6">
+            <div class="stats stats-vertical shadow-lg bg-base-200">
+              <div class="stat">
+                <div class="stat-figure text-primary">
+                  <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="stat-value text-primary">5+</div>
+                <div class="stat-title">Research Publications</div>
+              </div>
+
+              <div class="stat">
+                <div class="stat-figure text-secondary">
+                  <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="stat-value text-secondary">12+</div>
+                <div class="stat-title">Open Source Projects</div>
+              </div>
+
+              <div class="stat">
+                <div class="stat-figure text-accent">
+                  <svg
+                    class="w-8 h-8"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="stat-value text-accent">3</div>
+                <div class="stat-title">Conference Presentations</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-20 px-6 bg-base-200">
+      <div class="max-w-7xl mx-auto">
+        <Timeline items={timelineItems} />
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section
+      class="py-20 px-6 bg-gradient-to-br from-primary to-secondary text-primary-content"
+    >
+      <div class="max-w-4xl mx-auto text-center">
+        <div
+          class="backdrop-blur-sm bg-black/10 rounded-3xl p-8 md:p-12 border border-white/20"
+        >
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            Let's Connect!
+          </h2>
+          <p
+            class="text-lg md:text-xl opacity-90 mb-8 leading-relaxed max-w-3xl mx-auto"
+          >
+            I'm always interested in discussing research collaborations, new
+            opportunities, or just chatting about the latest developments in AI
+            and technology.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <a
+              href="mailto:gustavo@example.com"
+              class="btn btn-neutral btn-lg text-base-content hover:scale-105 transition-transform"
+            >
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                ></path>
+              </svg>
+              Get in Touch
+            </a>
+            <a
+              href="https://linkedin.com/in/gustavo-santos"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline btn-lg border-white/30 text-white hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all"
+            >
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                ></path>
+              </svg>
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/gefgu"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline btn-lg border-white/30 text-white hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all"
+            >
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                ></path>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
