@@ -5,7 +5,7 @@ venue: "International Conference on Advances in Social Networks Analysis and Min
 date: 2024-08-01
 featureImage: "/images/publications/asonam2024.png"
 pdfUrl: "/papers/asonam2024_culture_fingerprint.pdf"
-externalUrl: "https://asonam.2024/conference-link"
+externalUrl: "https://link.springer.com/chapter/10.1007/978-3-031-78538-2_25"
 # blogPostSlug: "culture-fingerprint"
 ---
 
