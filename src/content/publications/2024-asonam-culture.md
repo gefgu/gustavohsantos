@@ -11,15 +11,15 @@ externalUrl: "https://asonam.2024/conference-link"
 
 ## Abstract
 
-This study proposes a novel methodology to create "culture fingerprints" for urban areas, enabling the identification of culturally similar regions. Unlike traditional approaches that depend on user behavior data, our method leverages publicly available venue information from Google Places. By applying Scenes Theory, we transform venue categories into a rich, multi-dimensional cultural signature. [cite_start]This approach allows for a scalable and standardized comparison of cultural landscapes across different cities and countries, as demonstrated through case studies of cities around the world and all U.S. states[cite: 1799].
+This study proposes a novel methodology to create "culture fingerprints" for urban areas, enabling the identification of culturally similar regions. Unlike traditional approaches that depend on user behavior data, our method leverages publicly available venue information from Google Places. By applying Scenes Theory, we transform venue categories into a rich, multi-dimensional cultural signature. This approach allows for a scalable and standardized comparison of cultural landscapes across different cities and countries, as demonstrated through case studies of cities around the world and all U.S. states.
 
 ## Key Contributions
 
-- [cite_start]**Scenes-Based Cultural Signatures**: Introduces a method to generate cultural signatures ("fingerprints") for urban areas by mapping Google Places venue data to the 15 dimensions of Scenes Theory[cite: 866, 942].
-- [cite_start]**Scalable, Data-Driven Approach**: Provides a scalable alternative to survey-based cultural studies by using easily accessible, geolocated web data, independent of explicit user actions[cite: 938, 939].
-- [cite_start]**Knowledge Transfer**: Successfully demonstrates a knowledge transfer technique, using Yelp's detailed category structure to enrich and map Google Places data for more nuanced cultural analysis[cite: 1799].
-- [cite_start]**Cross-Regional Comparison**: Validates the approach by identifying culturally similar regions across different cities and states, showing that the method captures meaningful cultural patterns[cite: 1799, 1800].
+- **Scenes-Based Cultural Signatures**: Introduces a method to generate cultural signatures ("fingerprints") for urban areas by mapping Google Places venue data to the 15 dimensions of Scenes Theory.
+- **Scalable, Data-Driven Approach**: Provides a scalable alternative to survey-based cultural studies by using easily accessible, geolocated web data, independent of explicit user actions.
+- **Knowledge Transfer**: Successfully demonstrates a knowledge transfer technique, using Yelp's detailed category structure to enrich and map Google Places data for more nuanced cultural analysis.
+- **Cross-Regional Comparison**: Validates the approach by identifying culturally similar regions across different cities and states, showing that the method captures meaningful cultural patterns.
 
 ## Methodology
 
-The methodology is centered on creating cultural profiles for geographic regions from Google Places venue data. [cite_start]First, venue data is extracted and enriched using a more detailed set of categories from Yelp[cite: 1035, 1075]. [cite_start]Next, these enriched categories are mapped to the 15 dimensions of Scenes Theory via a process of semantic matching and knowledge transfer, resulting in a 15-dimensional vector for each venue[cite: 1057, 1077]. [cite_start]The "culture fingerprint" of a region is then computed as the average of all venue vectors within it[cite: 1007]. [cite_start]These fingerprints are used to compare and cluster different urban areas to identify cultural similarities[cite: 902].
+The methodology is centered on creating cultural profiles for geographic regions from Google Places venue data. First, venue data is extracted and enriched using a more detailed set of categories from Yelp. Next, these enriched categories are mapped to the 15 dimensions of Scenes Theory via a process of semantic matching and knowledge transfer, resulting in a 15-dimensional vector for each venue. The "culture fingerprint" of a region is then computed as the average of all venue vectors within it. These fingerprints are used to compare and cluster different urban areas to identify cultural similarities.

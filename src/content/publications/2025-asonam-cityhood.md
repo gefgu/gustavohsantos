@@ -2,7 +2,7 @@
 title: "CityHood: An Explainable Travel Recommender System for Cities and Neighborhoods"
 authors: "Gustavo H. Santos, Myriam Delgado, Daniel Silver, Thiago H. Silva"
 venue: "International Conference on Advances in Social Networks Analysis and Mining (ASONAM 2025)"
-date: 2025-07-01
+date: 2025-08-28
 featureImage: "/images/publications/cityhood.png"
 pdfUrl: "/papers/asonam2025_cityhood.pdf"
 externalUrl: "https://asonam.2025/conference-link"
