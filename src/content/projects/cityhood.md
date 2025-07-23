@@ -11,7 +11,7 @@ tags:
     "Urban Computing",
     "ASONAM",
   ]
-github: "https://github.com/gefgu/cityhood-demo"
+# github: "https://github.com/gefgu/cityhood-demo"
 demo: "https://cityhood.vercel.app"
 featured: true
 ---

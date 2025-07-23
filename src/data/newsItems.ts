@@ -7,9 +7,17 @@ export interface NewsItem {
   description: string;
   image?: string;
 }
-
 // Add your news mentions here
 const newsItems: NewsItem[] = [
+  {
+    date: new Date("2024-10-19"),
+    title: "WebMedia premia melhores trabalhos em várias categorias",
+    publication: "UFJF",
+    url: "https://www2.ufjf.br/midiadigital/2024/10/19/webmedia-premia-melhores-trabalhos-em-varias-categorias/",
+    description:
+      "A entrega da premiação para os melhores trabalhos apresentados no 30º Simpósio Brasileiro de Sistemas Multimídia e Web (WebMedia) foi realizada na noite do dia 17 de outubro. A solenidade aconteceu no Trade Hotel em Juiz de Fora.",
+    image: "/news/webmedia_prize.jpeg",
+  },
   {
     date: new Date("2024-10-26"),
     title: "Estudante Gustavo Santos é premiado no Webmedia 2024",
