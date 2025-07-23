@@ -4,8 +4,8 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://gefgu.github.io',
-  base: '/gustavohsantos',
+  site: 'gustavohsantos.com',
+  base: '/',
   output: 'static',
 
   build: {
