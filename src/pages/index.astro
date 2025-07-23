@@ -6,6 +6,7 @@ import Timeline from "../components/Timeline.astro";
 import timelineItems from "../data/timelineItems.ts";
 import HeroSection from "../components/HeroSection.astro";
 import AboutSection from "../components/AboutSection.astro";
+import NewsSection from "../components/NewsSection.astro";
 import CallToAction from "../components/CallToAction.astro";
 ---
 
@@ -25,6 +26,9 @@ import CallToAction from "../components/CallToAction.astro";
         <Timeline items={timelineItems} />
       </div>
     </section>
+
+    <!-- News Section -->
+    <NewsSection />
 
     <!-- Call to Action Section -->
     <CallToAction />
