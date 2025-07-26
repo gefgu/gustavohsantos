@@ -9,6 +9,12 @@ externalUrl: "https://kdd2025.kdd.org/undergraduate-and-masters-consortium/"
 # blogPostSlug: "inets-for-cities"
 ---
 
+CityHood Link: <a href="https://cityhood.vercel.app" target="_blank" rel="noopener">https://cityhood.vercel.app</a>
+
+H3-Cities Link: <a href="https://h3-cities.vercel.app" target="_blank" rel="noopener">https://h3-cities.vercel.app</a>
+
+Poster <a href="/posters/kdd2025-umc.pdf" target="_blank" rel="noopener">Link</a>.
+
 ## Abstract
 
 Location-Based Social Networks (LBSNs) like Google Places and Foursquare offer a treasure trove of data for understanding how people move through and interact with cities. We introduce **Interest Networks (iNETs)**, a powerful model that captures how user interests are distributed across urban spaces by analyzing co-visitation patterns. This study performs a comprehensive comparison of iNETs across different platforms and spatial granularities (from large city zones to fine-grained hexagonal grids).
@@ -19,127 +25,114 @@ Building on these insights, we developed a **multi-level, explainable recommenda
 
 ---
 
-## Key Contributions
+Have you ever wondered what gives a neighborhood its unique vibe? Why do you gravitate towards certain parts of a city and not others? Is it the people, the shops, the parks? At the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '25), one of the top conferences in our field, we presented our research that uses massive datasets to answer these very questions.
 
-- **iNETs for Urban Analysis**: We propose and formalize the use of Interest Networks (iNETs) to model and analyze urban dynamics based on user co-visitation patterns from LBSNs.
+Our work introduces a concept we call Interest Networks (iNETs), a powerful way to see how people's interests and movements shape the living, breathing map of a city. This post will walk you through our KDD poster, diving deeper into our methods, our most exciting findings, and the real-world tools we built.
 
-- **Cross-Platform & Multi-Scale Validation**: We systematically evaluate iNETs constructed from Google Places and Foursquare data across a wide range of spatial granularities. Coarser levels (like city boroughs or large hexagons) produce more aligned results, providing a stable macro-view of urban behavior.
+## The Big Picture: Our Research Poster
 
-- **Urban Preference Zones (UPZones)**: We introduce a method for identifying behaviorally coherent clusters of user interest that transcend traditional administrative boundaries.
+First, here's a look at the poster we presented. We designed it to tell a story, moving from the core questions on the left, through our methodology in the middle, to our key findings and the tools we developed on the right.
 
-- **Explainable Recommendation System**: Our scalable recommender system predicts high-interest regions for different user profiles and provides transparent justifications using Explainable AI (XAI) techniques.
+![A figure showing a poster.](/posters/kdd2025-umc.png)
+_Our KDD '25 poster, summarizing the journey from raw location data to explainable urban insights._
 
----
+## Decoding the City: What Are Interest Networks (iNETs)?
 
-## Methodology: A Three-Phase Approach
+So, what exactly is an iNET?
 
-### Phase 1: Constructing the Interest Networks (iNETs)
+Think of it like a social network, but for places instead of people. In an iNET, a "node" isn't a person, but an urban area—like a neighborhood, a ZIP code, or even a small hexagonal grid cell. An edge, or a link, connects two areas if the same people have visited both. The more people who co-visit two areas, the stronger the connection, or "interest," between them.
 
-We constructed iNETs from user activity datasets on Google Places (over **666 million reviews**) and Foursquare. In these networks:
+This simple but powerful model allows us to transform millions of anonymous check-ins and reviews from platforms like Google Places and Foursquare into a dynamic map of a city's interests.
 
-- **Nodes** represent spatial regions (e.g., ZIP codes or H3 hexagons).
-- **Edges** connect regions with shared users, weighted by co-visitation counts.
+![A figure ](/images/publications/kdd/inets_diagram.png)
+_How we build an iNET. We start with individual user activity (a), find users who visit the same pairs of regions (b), and aggregate this into a network where the edge weight shows the strength of the connection (c)._
 
-Each region is enriched with contextual features:
+This raised our central research questions: Can we use iNETs to understand what drives interest in urban areas? And do different platforms like Google and Foursquare tell us the same story about a city?
 
-- **Socioeconomic Data**: Income, employment, education (NHGIS, Brazilian Census).
-- **Political Data**: Voting data (U.S. 2020 and Brazil 2014 elections).
-- **Cultural Data**: Based on Scenes Theory and venue types.
+<div class="bg-primary/10 border-l-4 border-primary rounded-lg p-4 my-6">
 
-### Phase 2: Cross-Platform Validation and UPZones
+**📣 Key Finding in a Box**
 
-We compared iNETs from different platforms using correlation metrics (Pearson, Spearman, Kendall's Tau) across spatial granularities.
+Across all our analyses, two factors consistently stood out as the primary drivers of urban interest:
 
-Findings:
+- **Geographic Proximity:** We are creatures of convenience. People overwhelmingly prefer to visit places that are close to each other.
+- **Venue Similarity:** We like what we know. Interest is high between areas that offer similar types of places (e.g., two neighborhoods both known for their restaurants and cafes).
 
-- **Coarse Granularity**: More consistent patterns across platforms.
-- **Fine Granularity**: Reveals subtle, platform-specific behaviors.
+_Surprisingly, factors like socioeconomic status, income levels, and even political polarization had a much weaker influence on where people choose to spend their time._
 
-To improve consistency, we introduced **Urban Preference Zones (UPZones)** using the **Leiden algorithm** to detect high-resolution behavioral clusters (H3 level 9).
+</div>
 
-### Phase 3: Building an Explainable Recommender
+## Our Method: From Raw Data to Urban Insights
 
-We trained a **LightGBM classifier** to predict if a region would be of high interest to a user, based on liked/disliked locations and contextual features.
+To build our iNETs, we analyzed a massive amount of data: over 600 million reviews from Google Places and millions of check-ins from Foursquare across the USA, London, and Curitiba, Brazil. We then enriched this data with socioeconomic, cultural, and political information for each region.
 
-- **Explainability**: Integrated **SHAP values** to explain predictions (e.g., "proximity to places you liked", "similar venue types").
-- This model powers our interactive system **CityHood**.
+## A Deep Dive into "Granularity"
 
----
+A key part of our work was analyzing the city at different zoom levels, a concept we call spatial granularity. Think of it like adjusting the focus on a camera. A "coarse" granularity looks at large areas like city boroughs, giving you a big-picture view. A "fine" granularity zooms in on tiny hexagonal cells, showing you micro-level behaviors.
 
-## Tools for Urban Analysis
+We used both administrative boundaries (like ZIP codes and neighborhoods) and a flexible hexagonal grid system from Uber called H3.
 
-### h3-cities: For Consistent Spatial Analysis
+![A picture with](/images/h3cities/new_york_different_granularities_size_comparision.png)
+_A comparison of different spatial units in New York. From large H3 hexagons (H6) to tiny ones (H9), alongside traditional ZIP codes and Census Tracts. Choosing the right scale is crucial for analysis._
 
-A web-based tool using Uber’s H3 system to divide cities into consistent hexagonal grids.
+Results: **The Zoom Level Matters!**
 
-**Features:**
+When we compared the iNETs from Google Places and Foursquare, we found something fascinating.
 
-- Multi-resolution grids (H6 ~36 km² to H9 ~0.11 km²)
-- Visual previews and simple downloads
-- Enables consistent urban analysis across cities
+At a coarse level (e.g., large city districts), both platforms told a very similar story about which areas were popular and connected (high correlation). But as we zoomed in to a finer granularity, their stories began to diverge, revealing subtle, platform-specific behaviors. This suggests that while broad urban trends are universal, the micro-rhythms of a city are captured differently by different communities of users.
 
-### CityHood: An Explainable Travel Recommender
+## Beyond Borders: Introducing Urban Preference Zones (UPZones)
 
-An interactive recommender system that helps users explore cities and neighborhoods based on their interests.
+City-defined neighborhood boundaries are often based on historical lines, not how people actually use the space. We thought: what if we let the data draw the map?
 
-**Features:**
+This led us to create Urban Preference Zones (UPZones). Using a community detection algorithm, we identified clusters of small, adjacent grid cells that were densely connected by user traffic. These UPZones represent behaviorally coherent areas that often transcend official borders.
 
-- **Two-Level Recommendations**: City and neighborhood levels
-- **Rich Contextual Modeling**: Includes socio-demographics, politics, and culture
-- **Built-in Explainability**: LIME explanations + natural language summaries
-- **Interactive UI**: Built with React and MapLibre
+Our London case study was a perfect example. The UPZones our model identified mapped beautifully to well-known functional areas.
 
----
+![A Picture](/images/publications/kdd/london_areas_description_horizontal.png)
 
-## Key Findings & Results
+_Our algorithm identified these UPZones in London. Rather than following administrative lines, they map to functional areas like the Soho nightlife district (1), the high-end retail hub of Mayfair (3), and the South Bank cultural area (6). The word clouds reveal the dominant types of venues in each zone._
 
-### 1. The Impact of Spatial Granularity
+## From Groups to Individuals: Personalized Recommendations
 
-Our comparisons across the U.S., London, and Curitiba show:
+After understanding city-wide patterns, we zoomed in on the individual. We wanted to predict which new areas a specific user would find interesting. To do this, we first distinguished between two types of user behavior:
 
-- **Coarse Granularities** (e.g., H6, boroughs): High correlation between platforms
-- **Fine Granularities** (e.g., H8, H9): Lower correlation, platform-specific behavior
+- Returners: People who tend to stick to a few favorite, familiar places.
 
-> Platforms capture similar macro-patterns but diverge at micro-scales due to user base and check-in behavior differences.
+- Explorers: People who are constantly seeking out new areas and experiences.
 
----
+We then trained a machine learning model (a LightGBM classifier) to predict whether a region would be "high-interest" for a user based on their past activity. And thanks to explainable AI (XAI) techniques, the model doesn't just give a recommendation; it explains why.
 
-### 2. What Drives Urban Interest?
+![A Picture](/images/publications/kdd/kdd_feature_importance_comparison.png)
+_What factors predict a user's next favorite spot? This chart shows that distance to places they already love ((geographic)top) and the similarity of venues ((categories)top) are by far the most important predictors for our model._
 
-We correlated iNET edge weights with contextual features:
+Interestingly, the model was more accurate for explorers, who are driven more by geographic proximity to other places they like. Returners, on the other hand, are more influenced by finding areas with similar types of venues, regardless of distance.
 
-- **Most Important Predictors**:
+## Impact and Our Contribution: Meet CityHood
 
-  - **Geographic Distance** (strong negative correlation)
-  - **Venue Similarity** (strong positive correlation)
+To bring all this research to life, we developed two key tools:
 
-- **Weaker Predictors**:
-  - Socioeconomic variables (income, education)
-  - Political leaning
-  - Population density
+- h3-cities: An open tool for researchers to easily segment any city in the world into hexagons for multi-scale analysis.
 
-> Suggests mobility choices are more shaped by proximity and interests than demographics or politics.
+- CityHood: A public demo that showcases our recommendation system. It allows users to get personalized city and neighborhood recommendations, complete with AI-powered explanations for why a place might be a good fit for them.
 
----
+![A sneak peek at our CityHood demo, a tool that provides personalized city and neighborhood recommendations with AI-powered explanations.](/images/cityhood/initial_screen.png)
+_A sneak peek at our CityHood demo, a tool that provides personalized city and neighborhood recommendations with AI-powered explanations._
 
-### 3. Differentiating User Behavior: Explorers vs. Returners
+## Conclusion & What's Next?
 
-Our model distinguishes:
+This research offers a new lens through which to view and understand our cities. Here are the key takeaways:
 
-- **Explorers**: Influenced by proximity to other high-interest cities
-- **Returners**: Influenced by similarity in venue categories
+- iNETs are a powerful and scalable way to model urban behavior using LBSN data.
 
-> The recommender adapts to behavioral profiles to offer personalized insights.
+- The lifeblood of a city's interest map is primarily geographic distance and venue similarity.
 
----
+- The "right" map scale matters. Coarse views show general patterns, while fine-grained views reveal unique, platform-specific behaviors.
 
-## Figures (Descriptions)
+- We can let data define more meaningful "neighborhoods" (UPZones) based on how people actually move and interact.
 
-- **Figure 1**: iNET construction pipeline from Google Places user reviews.
-- **Figure 2**: Top 6 UPZones in London from Google data with venue category word clouds.
-- **Figure 3**: Correlation drop between platforms at finer granularities.
-- **Figure 4**: Feature importance—Geography and Venue Similarity dominate.
-- **Figure 5**: Explorer vs. Returner behaviors explained via model outputs.
-- **Figure 6**: CityHood screenshots (UI steps: labeling → recommendations → refinement).
+- This framework can power the next generation of smart, explainable, and personalized recommendation systems.
 
----
+Our journey isn't over. We plan to integrate textual reviews using NLP, incorporate time-aware mobility patterns, and validate our findings with local urban planning experts. Our tools and datasets provide a foundation for exciting future work in urban computing, mobility modeling, and recommender systems.
+
+Discaimer: I've let Google Gemini write a fun overview of the paper, but for a proper reading, please, refer to the paper.
