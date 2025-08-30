@@ -37,6 +37,16 @@ const newsItems: NewsItem[] = [
       "Gustavo dos Santos recebeu o prêmio de melhor trabalho de iniciação científica.",
     image: "/news/noticias_utfpr_2.png",
   },
+    {
+    date: new Date("2025-08-04"),
+    title:
+      "Estudante de Engenharia da Computação participa do principal fórum internacional de Ciência de Dados",
+    publication: "UTFPR",
+    url: "https://www.utfpr.edu.br/noticias/curitiba/estudante-de-engenharia-da-computacao-participa-do-principal-forum-internacional-de-ciencia-de-dados",
+    description:
+      "Gustavo Henrique Bruno dos Santos esteve em Toronto para apresentar seu projeto na SIGKDD.",
+    image: "/news/noticias_utfpr_kdd.jp g",
+  },
 ];
 
 export default newsItems;
