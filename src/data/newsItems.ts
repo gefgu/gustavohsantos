@@ -45,7 +45,7 @@ const newsItems: NewsItem[] = [
     url: "https://www.utfpr.edu.br/noticias/curitiba/estudante-de-engenharia-da-computacao-participa-do-principal-forum-internacional-de-ciencia-de-dados",
     description:
       "Gustavo Henrique Bruno dos Santos esteve em Toronto para apresentar seu projeto na SIGKDD.",
-    image: "/news/noticias_utfpr_kdd.jp g",
+    image: "/news/noticias_utfpr_kdd.jpg",
   },
 ];
 
