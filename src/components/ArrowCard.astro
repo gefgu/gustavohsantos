@@ -1,16 +1,12 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-type Props = {
-  entry: CollectionEntry<"blog"> | CollectionEntry<"projects">;
-}
-
+type Props = { entry: CollectionEntry<"blog"> };
 const { entry } = Astro.props;
-const date = entry.data.date.toLocaleDateString("en-US", { year: "numeric", month: "short" });
+const date = entry.data.date.toISOString().slice(0, 10);
 ---
 
-<a href={`/${entry.collection}/${entry.slug}`} class="group block py-1">
-  <span class="text-sm" style="color: var(--mut); font-family: ui-sans-serif, system-ui, sans-serif">{date}</span>
-  <span class="block font-semibold group-hover:underline" style="color: var(--link)">{entry.data.title}</span>
-  <span class="block text-sm" style="color: var(--mut)">{entry.data.description}</span>
+<a href={`/blog/${entry.slug}`} class="row">
+  <time>{date}</time>
+  <span>{entry.data.title}</span>
 </a>

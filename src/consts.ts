@@ -4,8 +4,6 @@ export const SITE: Site = {
   NAME: "Gustavo H. Santos",
   EMAIL: "gustavohenriquesantos@alunos.utfpr.edu.br",
   NUM_POSTS_ON_HOMEPAGE: 3,
-  NUM_WORKS_ON_HOMEPAGE: 2,
-  NUM_PROJECTS_ON_HOMEPAGE: 3,
 };
 
 export const HOME: Metadata = {
@@ -16,11 +14,6 @@ export const HOME: Metadata = {
 export const BLOG: Metadata = {
   TITLE: "Blog",
   DESCRIPTION: "Notes on research, engineering and reading.",
-};
-
-export const WORK: Metadata = {
-  TITLE: "Work",
-  DESCRIPTION: "Research, study and work experience.",
 };
 
 export const PROJECTS: Metadata = {

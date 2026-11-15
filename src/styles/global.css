@@ -57,6 +57,25 @@ header {
   @apply py-8;
   border-bottom: 1px solid var(--rule);
   font-size: 0.95rem;
+  animation: fade-down 0.6s ease-out both;
+}
+header .site-name {
+  font-weight: 700;
+  color: var(--fg);
+  text-decoration: none;
+}
+header nav a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+header nav a[aria-current="page"] {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+  text-decoration-color: var(--link);
+}
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-6px); }
 }
 
 main {
@@ -64,7 +83,8 @@ main {
 }
 
 footer {
-  @apply py-8 text-sm;
+  @apply py-8;
+  font-size: 0.85rem;
   border-top: 1px solid var(--rule);
   color: var(--mut);
 }
@@ -72,6 +92,82 @@ footer {
 a {
   color: var(--link);
   text-underline-offset: 0.15em;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+a:hover {
+  opacity: 0.75;
+}
+
+h1 {
+  font: 700 2rem/1.2 ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  margin: 0.2rem 0 1rem;
+}
+h2 {
+  font: 700 1.15rem/1.3 ui-sans-serif, system-ui, sans-serif;
+  margin: 2.2rem 0 0.5rem;
+}
+.meta,
+time {
+  color: var(--mut);
+  font: 0.85rem ui-sans-serif, system-ui, sans-serif;
+}
+h2 .meta {
+  margin-left: 0.5rem;
+  font-weight: 400;
+}
+.me {
+  float: right;
+  width: 96px;
+  height: 96px;
+  margin: 0 0 0.5rem 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.list .row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.2rem 0;
+  text-decoration: none;
+}
+.list .row time {
+  min-width: 6.5rem;
+}
+.list .row span {
+  color: var(--link);
+  transition: transform 0.2s ease;
+}
+.list .row:hover span {
+  transform: translateX(4px);
+  text-decoration: underline;
+}
+.pubs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.pubs li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+pre {
+  background: var(--code);
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  overflow-x: auto;
+  font-size: 0.85em;
+}
+@media (max-width: 480px) {
+  html { font-size: 17px; }
+  .list .row { flex-direction: column; gap: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  header, .animate { animation: none; transition: none; }
 }
 header a,
 footer a {
@@ -105,7 +201,7 @@ article {
   @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   --tw-prose-body: var(--fg);
   --tw-prose-invert-body: var(--fg);
-  @apply prose-headings:font-semibold prose-p:font-serif;
+  @apply prose-p:font-serif;
   @apply prose-headings:font-sans;
 }
 
