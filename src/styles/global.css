@@ -98,6 +98,10 @@ a:hover {
   opacity: 0.75;
 }
 
+main p {
+  margin: 0 0 1em;
+}
+
 h1 {
   font: 700 2rem/1.2 ui-sans-serif, system-ui, sans-serif;
   letter-spacing: -0.02em;

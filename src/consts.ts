@@ -27,6 +27,14 @@ export const PAPERS: Metadata = {
 };
 
 export const SOCIALS: Socials = [
+  {
+    NAME: "cv",
+    HREF: "/cv.pdf",
+  },
+  {
+    NAME: "scholar",
+    HREF: "https://scholar.google.com/citations?user=Di8YT_UAAAAJ",
+  },
   { 
     NAME: "github",
     HREF: "https://github.com/gefgu"
