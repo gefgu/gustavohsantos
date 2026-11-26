@@ -1,0 +1,28 @@
+---
+// GoatCounter (open source, no cookies). Renders nothing until GOATCOUNTER_CODE is set.
+import { GOATCOUNTER_CODE as code } from "@consts";
+---
+
+{code && (
+  <script is:inline define:vars={{ endpoint: `https://${code}.goatcounter.com/count` }}>
+    // Astro swaps pages without a reload, so count on every `astro:page-load` instead of once.
+    if (!window.goatcounterSetup) {
+      window.goatcounterSetup = true;
+      window.goatcounter = { no_onload: true };
+      let pending = false;
+      const count = () => window.goatcounter.count({ path: location.pathname + location.search });
+
+      document.addEventListener("astro:page-load", () => {
+        if (window.goatcounter.count) count();
+        else pending = true; // count.js is still downloading
+      });
+
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = "https://gc.zgo.at/count.js";
+      script.dataset.goatcounter = endpoint;
+      script.onload = () => { if (pending) { pending = false; count(); } };
+      document.head.appendChild(script);
+    }
+  </script>
+)}

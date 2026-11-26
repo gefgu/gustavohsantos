@@ -1,12 +1,17 @@
 ---
 import Container from "@components/Container.astro";
+import Newsletter from "@components/Newsletter.astro";
 import { SITE, SOCIALS } from "@consts";
 const year = new Date().getFullYear();
+// Home page and everything under /blog
+const path = Astro.url.pathname;
+const showNewsletter = path === "/" || /^\/blog(\/|$)/.test(path);
 ---
 
 <footer class="animate">
   <Container>
-    © {year} {SITE.NAME}
+    {showNewsletter && <Newsletter />}
+    © {year} {" "} {SITE.NAME}
     {SOCIALS.map((s) => (<> · <a href={s.HREF}>{s.NAME}</a></>))}
     · <a href={`mailto:${SITE.EMAIL}`}>mail</a>
   </Container>

@@ -1,0 +1,139 @@
+---
+// MailerLite embedded form "Blog newsletter". The IDs are public: they are visible in the page.
+const ACTION = "https://assets.mailerlite.com/jsonp/2826657/forms/205204329993340460/subscribe";
+const RECAPTCHA_SITEKEY = "6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD";
+---
+
+<section class="newsletter">
+  <h2>Subscribe to my Newsletter!</h2>
+  <p>I will be post regularly on open-source software, the current bottlenecks on the current ones and how to improve them. If you're interested on my work, subscribing will keep you in the loop!</p>
+
+  <!-- data-astro-reload: keep Astro's router from intercepting. Without JavaScript the form posts to MailerLite. -->
+  <form action={ACTION} method="post" target="_blank" data-astro-reload data-newsletter data-sitekey={RECAPTCHA_SITEKEY}>
+    <div class="row">
+      <input type="email" name="fields[email]" placeholder="Email" aria-label="Email" autocomplete="email" required />
+      <button type="submit">Subscribe</button>
+    </div>
+    <div class="captcha"></div>
+    <input type="hidden" name="ml-submit" value="1" />
+    <input type="hidden" name="anticsrf" value="true" />
+    <p class="status" aria-live="polite"></p>
+  </form>
+</section>
+
+<script>
+  // Listeners sit on `document`, so they keep working after Astro swaps pages.
+  declare global {
+    interface Window { grecaptcha?: any; onRecaptchaReady?: () => void; }
+  }
+
+  let loading: Promise<void> | undefined;
+
+  function loadRecaptcha() {
+    loading ??= new Promise<void>((resolve, reject) => {
+      window.onRecaptchaReady = () => resolve();
+      const script = document.createElement("script");
+      script.src = "https://www.google.com/recaptcha/api.js?onload=onRecaptchaReady&render=explicit";
+      script.async = true;
+      script.onerror = () => { loading = undefined; script.remove(); reject(new Error("recaptcha")); };
+      document.head.appendChild(script);
+    });
+    return loading;
+  }
+
+  const say = (form: HTMLFormElement, text: string) => {
+    form.querySelector(".status")!.textContent = text;
+  };
+
+  async function showCaptcha(form: HTMLFormElement) {
+    const box = form.querySelector<HTMLElement>(".captcha")!;
+    try {
+      await loadRecaptcha();
+    } catch {
+      say(form, "Could not load the verification box. Check your connection or content blocker.");
+      return;
+    }
+    if (box.dataset.widget !== undefined) return;
+    box.dataset.widget = String(window.grecaptcha.render(box, {
+      sitekey: form.dataset.sitekey,
+      theme: document.documentElement.classList.contains("dark") ? "dark" : "light",
+    }));
+  }
+
+  const newsletterForm = (target: EventTarget | null) =>
+    target instanceof Element ? target.closest<HTMLFormElement>("form[data-newsletter]") : null;
+
+  document.addEventListener("focusin", (event) => {
+    const form = newsletterForm(event.target);
+    if (form) showCaptcha(form);
+  });
+
+  document.addEventListener("submit", async (event) => {
+    const form = newsletterForm(event.target);
+    if (!form) return;
+    event.preventDefault();
+
+    const widget = form.querySelector<HTMLElement>(".captcha")!.dataset.widget;
+    if (widget === undefined || !window.grecaptcha.getResponse(Number(widget))) {
+      await showCaptcha(form);
+      say(form, "Please tick the verification box, then press Subscribe.");
+      return;
+    }
+
+    const button = form.querySelector("button")!;
+    button.disabled = true;
+    say(form, "Subscribing…");
+    try {
+      const body = new URLSearchParams(new FormData(form) as unknown as Record<string, string>);
+      const result = await (await fetch(form.action, { method: "POST", body })).json();
+      if (!result.success) {
+        const errors = Object.values(result.errors?.fields ?? {}).flat().join(" ");
+        throw new Error(errors || "Something went wrong. Please try again.");
+      }
+      form.innerHTML = '<p class="status"><strong>Thank you!</strong> You have successfully joined my subscriber list.</p>';
+    } catch (error) {
+      const message = error instanceof Error && !(error instanceof TypeError) && !(error instanceof SyntaxError)
+        ? error.message
+        : "Could not reach the newsletter service. Please try again.";
+      say(form, message);
+      window.grecaptcha.reset(Number(widget));
+      button.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  .newsletter {
+    margin-bottom: 1.5rem;
+    padding: 1.1rem 1.2rem;
+    background: var(--code);
+    border-radius: 8px;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    color: var(--fg);
+  }
+  h2 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+  section > p { margin: 0 0 0.8rem; color: var(--mut); line-height: 1.5; }
+  .row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  input[type="email"] {
+    flex: 1 1 12rem;
+    min-width: 0;
+    padding: 0.45rem 0.7rem;
+    background: var(--bg);
+    color: var(--fg);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    font: inherit;
+  }
+  button {
+    padding: 0.45rem 1rem;
+    background: var(--fg);
+    color: var(--bg);
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button:disabled { opacity: 0.6; cursor: default; }
+  .captcha:not(:empty) { margin-top: 0.7rem; }
+  form :global(.status) { margin: 0.6rem 0 0; }
+  form :global(.status:empty) { display: none; }
+</style>

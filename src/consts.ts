@@ -6,6 +6,9 @@ export const SITE: Site = {
   NUM_POSTS_ON_HOMEPAGE: 3,
 };
 
+// Your GoatCounter site code, the "xxx" in https://xxx.goatcounter.com. Empty = analytics off.
+export const GOATCOUNTER_CODE = "gefgu";
+
 export const HOME: Metadata = {
   TITLE: "Home",
   DESCRIPTION: "Urban researcher and engineer. Author of fastmob, a fast mobility analysis library for Python.",

@@ -43,7 +43,7 @@ As people move through cities in similar ways, the methods used to study mobilit
 Scikit-mobility appeared around 2019, led by Luca Pappalardo, Filippo Simini, Gianni Barlacchi, Roberto Pellungrini. It implemented several common mobility metrics,  such as jump lengths, radius of gyration. It also implemented data cleaning methods, like noise detection and stop detection. Finally, it provided data structures to better organize your analysis and also cared about privacy, synthetic data generation and easy plotting functions. This incredible library is one of the most famous mobility libraries, with more than 800 stars, 260 citations and the reference in terms of human mobility analysis.
 
 <figure class="viz not-prose">
-<div class="chips"><div class="chip "><b>2019</b><span>first appeared</span></div><div class="chip "><b>800+</b><span>GitHub stars</span></div><div class="chip "><b>260</b><span>citations</span></div></div>
+<div class="chips"><div class="chip "><b>2019</b><span>first appeared</span></div><div class="chip "><b>800+</b><span>GitHub stars</span></div><div class="chip "><b>260+</b><span>citations</span></div></div>
 </figure>
 
 

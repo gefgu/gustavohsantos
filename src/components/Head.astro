@@ -11,6 +11,7 @@ import lora600 from "@fontsource/lora/files/lora-latin-600-normal.woff2";
 
 import { ClientRouter } from "astro:transitions";
 import { SITE } from "@consts";
+import Analytics from "@components/Analytics.astro";
 
 interface Props {
   title: string;
@@ -59,6 +60,7 @@ const { title, description, image = "/nano.png" } = Astro.props;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <ClientRouter  />
+<Analytics />
 
 <!-- RSS Link -->
 <link rel="alternate" type="application/rss+xml" title={SITE.NAME} href={new URL("rss.xml", Astro.site)} />
